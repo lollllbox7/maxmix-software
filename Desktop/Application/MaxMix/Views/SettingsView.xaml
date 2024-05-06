@@ -24,6 +24,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <!-- Starts -->
@@ -50,50 +52,61 @@
         <CheckBox Grid.Column="1" Grid.Row="3"
                   IsChecked="{Binding SleepWhenInactive}" />
 
-        <!-- SleepAfterSeconds -->
+        <!-- RTS -->
         <Label Grid.Column="0" Grid.Row="4" Margin="0,3,0,6"
+               Content="RTS (On next launch)" />
+        <CheckBox Grid.Column="1" Grid.Row="4"
+                  IsChecked="{Binding RTS}" />
+        <!-- DTR -->
+        <Label Grid.Column="0" Grid.Row="5" Margin="0,3,0,6"
+               Content="DTR (On next launch)" />
+        <CheckBox Grid.Column="1" Grid.Row="5"
+                  IsChecked="{Binding DTR}" />
+
+        <!-- SleepAfterSeconds -->
+        <Label Grid.Column="0" Grid.Row="6" Margin="0,3,0,6"
                Content="Sleep after (seconds)" />
-        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="4" MinWidth="50" HorizontalAlignment="Left"
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="6" MinWidth="50" HorizontalAlignment="Left"
                             Foreground="{StaticResource Brush_White}"
                             Minimum="0" Maximum="60"
                             Value="{Binding SleepAfterSeconds}" />
 
         <!-- AccelerationPercentage -->
-        <Label Grid.Column="0" Grid.Row="5" Margin="0,3,0,6"
+        <Label Grid.Column="0" Grid.Row="7" Margin="0,3,0,6"
                Content="Encoder acceleration (%)" />
-        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="5" MinWidth="50" HorizontalAlignment="Left"
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="7" MinWidth="50" HorizontalAlignment="Left"
                             Foreground="{StaticResource Brush_White}"
                             Minimum="1" Maximum="100"
                             Value="{Binding AccelerationPercentage}" />
 
         <!-- Double Tap Time -->
-        <Label Grid.Column="0" Grid.Row="6" Margin="0,3,0,6"
+        <Label Grid.Column="0" Grid.Row="8" Margin="0,3,0,6"
                Content="Double tap time (ms)" />
-        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="6" MinWidth="50" HorizontalAlignment="Left"
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="8" MinWidth="50" HorizontalAlignment="Left"
                             Foreground="{StaticResource Brush_White}"
                             Minimum="1" Maximum="2000"
                             Value="{Binding DoubleTapTime}" />
 
         <!-- Volume colors -->
-        <Label Grid.Column="0" Grid.Row="7" Margin="0,3,0,6"
+        <Label Grid.Column="0" Grid.Row="9" Margin="0,3,0,6"
                Content="Volume colors" />
-        <StackPanel Grid.Column="1" Grid.Row="7" Orientation="Horizontal">
+        <StackPanel Grid.Column="1" Grid.Row="9" Orientation="Horizontal">
             <xctk:ColorPicker MaxWidth="50" SelectedColor="{Binding VolumeMinColor, Converter={StaticResource Cnv_ColorToUint32}}" />
             <xctk:ColorPicker MaxWidth="50" SelectedColor="{Binding VolumeMaxColor, Converter={StaticResource Cnv_ColorToUint32}}" />
         </StackPanel>
 
         <!-- Mix Channel colors -->
-        <Label Grid.Column="0" Grid.Row="8"  Margin="0,3,0,6"
+        <Label Grid.Column="0" Grid.Row="10"  Margin="0,3,0,6"
                Content="Mix channel colors" />
-        <StackPanel Grid.Column="1" Grid.Row="8" Orientation="Horizontal">
+        <StackPanel Grid.Column="1" Grid.Row="10" Orientation="Horizontal">
             <xctk:ColorPicker MaxWidth="50" SelectedColor="{Binding MixChannelAColor, Converter={StaticResource Cnv_ColorToUint32}}" />
             <xctk:ColorPicker MaxWidth="50" SelectedColor="{Binding MixChannelBColor, Converter={StaticResource Cnv_ColorToUint32}}" />
         </StackPanel>
 
         <!-- Device Startup Mode -->
-        <Label Grid.Column="0" Grid.Row="9"  Margin="0,3,0,6"
+        <Label Grid.Column="0" Grid.Row="11"  Margin="0,3,0,6"
                Content="Device startup mode" />
-        <ComboBox Grid.Column="1" Grid.Row="9" SelectedValue="{Binding StartupMode, Mode=TwoWay}" >
+        <ComboBox Grid.Column="1" Grid.Row="11" SelectedValue="{Binding StartupMode, Mode=TwoWay}" >
             <Communication:DisplayMode>MODE_OUTPUT</Communication:DisplayMode>
             <Communication:DisplayMode>MODE_INPUT</Communication:DisplayMode>
             <Communication:DisplayMode>MODE_APPLICATION</Communication:DisplayMode>

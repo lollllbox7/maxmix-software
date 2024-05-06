@@ -158,6 +158,8 @@ namespace MaxMix.Services.Communication
                     m_SerialPort = new SerialPort(portName, 76800);
                     m_SerialPort.ReadTimeout = k_ReadTimeout;
                     m_SerialPort.WriteTimeout = k_WriteTimeout;
+                    m_SerialPort.DtrEnable = Properties.Settings.Default.DTR;
+                    m_SerialPort.RtsEnable = Properties.Settings.Default.RTS;
                     m_SerialPort.Open();
                     m_SerialPort.DiscardInBuffer();
                     m_SerialPort.DiscardOutBuffer();

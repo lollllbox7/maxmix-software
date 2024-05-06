@@ -106,6 +106,36 @@ namespace MaxMix.ViewModels
         }
 
         /// <summary>
+        /// Enables the Ready To Send Property of the SerialPort
+        /// </summary>
+        public bool RTS
+        {
+            get => _settings.RTS;
+            set
+            {
+                if (_settings.RTS == value)
+                    return;
+                _settings.RTS = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Enables the Data Terminal Ready Property of the SerialPort
+        /// </summary>
+        public bool DTR
+        {
+            get => _settings.DTR;
+            set
+            {
+                if (_settings.DTR == value)
+                    return;
+                _settings.DTR = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        /// <summary>
         /// Value used in the acceleration algorithm.
         /// Increasing the divisor will reduce the acceleration effect.
         /// </summary>

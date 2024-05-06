@@ -86,6 +86,20 @@ namespace MaxMix.ViewModels
                 return _requestExitCommand;
             }
         }
+
+        /// <summary>
+        /// Requests a restart of the process.
+        /// </summary>
+        private ICommand _restartCommand;
+        public ICommand RestartCommand
+        {
+            get
+            {
+                if (_restartCommand == null)
+                    _restartCommand = new DelegateCommand(() => RestartRequested?.Invoke(this, EventArgs.Empty));
+                return _restartCommand;
+            }
+        }
         #endregion
 
         // Device State Tracking
@@ -125,6 +139,8 @@ namespace MaxMix.ViewModels
         /// Raised to indicate the the shutdown of the application has been requested.
         /// </summary>
         public event EventHandler ExitRequested;
+
+        public event EventHandler RestartRequested;
 
         public override void Start()
         {
